@@ -1,14 +1,13 @@
 pipeline {
     agent any
 	tools { 
-        maven 'maven3.3.9' 
-        jdk 'java1.8.0_144' 
+        maven 'M3'
     }
     stages {
         stage('Build') {
             steps {
 		echo 'Building...'
-                sh "${maven}/bin/mvn test"
+                sh "'${maven}/bin/mvn' -Dmaven.test.failure.ignore clean package"
             }
         }
     }
